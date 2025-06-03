@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Notas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        .navbar {
+            background-color: #01468a;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar img {
+            height: 40px;
+        }
+        .navbar .user {
+            font-weight: bold;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #01468a;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            color: white;
+            padding: 20px 10px;
+        }
+        .main {
+            margin-left: 200px;
+            padding: 20px;
+            padding-top: 80px;
+        }
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .busqueda, .notas {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .busqueda input, .busqueda select {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #e0e0e0;
+        }
+        .aprobado {
+            color: green;
+            font-weight: bold;
+        }
+        .no-aprobado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo.png" alt="Logo">
+        <div class="user">D. Vallejos</div>
+    </div>
+    <div class="sidebar">
+        <p>📘 Alumnos</p>
+        <p>💲 Pagos</p>
+        <p>🔔 Notificaciones</p>
+    </div>
+    <div class="main">
+        <div class="busqueda">
+            <div class="section-title">BÚSQUEDA</div>
+            <input type="text" placeholder="Carrera">
+            <input type="text" placeholder="Materia">
+            <select>
+                <option>Tipo de Evaluación</option>
+            </select>
+            <button>Buscar</button>
+            <button>Limpiar</button>
+        </div>
+        <div class="notas">
+            <div class="section-title">CONSULTA DE NOTAS</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Materia</th>
+                        <th>Tipo de Evaluación</th>
+                        <th>Nota</th>
+                        <th>¿Aprobado?</th>
+                        <th>Año Carrera</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>21/05/2025</td><td>BIOQUÍMICA Y INMUNOLOGÍA NUTRICIÓN NORMAL</td><td>ERA 1</td><td>3.00</td><td>No</td><td>3</td></tr>
+<tr><td>12/05/2025</td><td>Fisiología</td><td>ERA 1</td><td>6.00</td><td>Si</td><td>3</td></tr>
+<tr><td>16/12/2024</td><td>ANATOMÍA NORMAL</td><td>FINAL</td><td>3.00</td><td>No</td><td>2</td></tr>
+<tr><td>13/12/2024</td><td>ATENCIÓN PRIMARIA DE LA SALUD</td><td>FINAL</td><td>6.00</td><td>Si</td><td>2</td></tr>
+<tr><td>12/12/2024</td><td>ANATOMÍA NORMAL</td><td>Recuperatorio ERA 2</td><td>5.00</td><td>Si</td><td>2</td></tr>
+<tr><td>06/12/2024</td><td>ATENCIÓN PRIMARIA DE LA SALUD</td><td>Recuperatorio ERA 1</td><td>6.00</td><td>Si</td><td>2</td></tr>
+<tr><td>28/11/2024</td><td>HISTOLOGIA Y EMBRIOLOGIA. GENETICA HUMANA BIOQUIMICA CELULAR</td><td>FINAL</td><td>6.00</td><td>Si</td><td>2</td></tr>
+<tr><td>22/11/2024</td><td>ANATOMÍA NORMAL</td><td>Recuperatorio ERA 3</td><td>5.00</td><td>Si</td><td>2</td></tr>
+<tr><td>16/11/2024</td><td>ANATOMÍA NORMAL</td><td>ERA 4</td><td>7.00</td><td>Si</td><td>2</td></tr>
+<tr><td>13/11/2024</td><td>HISTOLOGIA Y EMBRIOLOGIA. GENETICA HUMANA BIOQUIMICA CELULAR</td><td>Recuperatorio ERA 1</td><td>6.00</td><td>Si</td><td>2</td></tr>
+<tr><td>13/11/2024</td><td>HISTOLOGIA Y EMBRIOLOGIA. GENETICA HUMANA BIOQUIMICA CELULAR</td><td>Recuperatorio ERA 2</td><td>9.00</td><td>Si</td><td>2</td></tr>
+<tr><td>12/11/2024</td><td>ATENCIÓN PRIMARIA DE LA SALUD</td><td>ERA 2</td><td>6.00</td><td>Si</td><td>2</td></tr>
+<tr><td>05/11/2024</td><td>ATENCIÓN PRIMARIA DE LA SALUD</td><td>ERA 1</td><td>3.00</td><td>No</td><td>2</td></tr>
+<tr><td>02/11/2024</td><td>ANATOMÍA NORMAL</td><td>ERA 3</td><td>3.00</td><td>No</td><td>2</td></tr>
+<tr><td>28/10/2024</td><td>HISTOLOGIA Y EMBRIOLOGIA. GENETICA HUMANA BIOQUIMICA CELULAR</td><td>ERA 3</td><td>6.00</td><td>Si</td><td>2</td></tr>
+<tr><td>19/08/2024</td><td>ANATOMÍA NORMAL</td><td>ERA 2</td><td>3.00</td><td>No</td><td>2</td></tr>
+<tr><td>05/08/2024</td><td>HISTOLOGIA Y EMBRIOLOGIA. GENETICA HUMANA BIOQUIMICA CELULAR</td><td>ERA 2</td><td>3.00</td><td>No</td><td>2</td></tr>
+<tr><td>24/07/2024</td><td>TECNICAS HISTOLOGICAS</td><td>FINAL</td><td>7.00</td><td>Si</td><td>2</td></tr>
+<tr><td>28/06/2024</td><td>CURSO TEORICO PRACTICO DE SUTURAS</td><td>Final Medicina</td><td>6.00</td><td>Si</td><td>2</td></tr>
+<tr><td>07/06/2024</td><td>ANATOMÍA NORMAL</td><td>Recuperatorio ERA 1</td><td>8.00</td><td>Si</td><td>2</td></tr>
+<tr><td>13/05/2024</td><td>HISTOLOGIA Y EMBRIOLOGIA. GENETICA HUMANA BIOQUIMICA CELULAR</td><td>ERA 1</td><td>3.00</td><td>No</td><td>2</td></tr>
+<tr><td>04/05/2024</td><td>ANATOMÍA NORMAL</td><td>ERA 1</td><td>Ausente</td><td>No</td><td>2</td></tr>
+<tr><td>28/03/2023</td><td>BASES BIOLÓGICAS Y ANTROPOLÓGICAS DE LA VIDA</td><td>Final Medicina</td><td>4.00</td><td>Si</td><td>2</td></tr>
+<tr><td>15/03/2023</td><td>INTRODUCCIÓN AL ESTUDIO DE LA MEDICINA</td><td>Final Medicina</td><td>6.00</td><td>Si</td><td>1</td></tr>
+<tr><td>06/03/2023</td><td>BASES BIOLÓGICAS Y ANTROPOLÓGICAS DE LA VIDA</td><td>ERA 2</td><td>A</td><td>Si</td><td>1</td></tr>
+<tr><td>22/02/2023</td><td>INTRODUCCIÓN AL ESTUDIO DE LA MEDICINA</td><td>ERA 1</td><td>8.00</td><td>Si</td><td>1</td></tr>
+<tr><td>16/02/2023</td><td>BASES BIOLÓGICAS Y ANTROPOLÓGICAS DE LA VIDA</td><td>ERA 1</td><td>6.00</td><td>Si</td><td>1</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
