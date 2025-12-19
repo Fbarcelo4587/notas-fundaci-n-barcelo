@@ -80,6 +80,32 @@
             color: red;
             font-weight: bold;
         }
+.menu-item{
+  background:none;
+  border:none;
+  color:white;
+  text-align:left;
+  padding:12px;
+  width:100%;
+  cursor:pointer;
+}
+
+.submenu{
+  display:none;
+  padding-left:20px;
+}
+
+.submenu.open{
+  display:block;
+}
+
+.sidebar a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  padding:8px 20px;
+}
+
     </style>
 <div class="sidebar">
 
@@ -169,5 +195,12 @@
             </table>
         </div>
     </div>
+<script>
+document.querySelectorAll('.has-children').forEach(btn => {
+  btn.onclick = () => {
+    document.getElementById(btn.dataset.target).classList.toggle('open');
+  };
+});
+</script>
 </body>
 </html>
