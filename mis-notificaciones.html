@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mis Notificaciones</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; background-color:#f0f2f5; }
+
+    .navbar{
+      background-color:#01468a;
+      color:#fff;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:fixed;
+      top:0; left:0; right:0;
+      height:60px;
+      z-index:1000;
+    }
+    .navbar img{ height:40px; }
+    .navbar .user{ font-weight:bold; }
+
+    .sidebar{
+      width:200px;
+      background-color:#01468a;
+      position:fixed;
+      top:60px;
+      bottom:0;
+      color:#fff;
+      padding:20px 10px;
+      z-index:900;
+    }
+
+    .menu-item{
+      background:none;
+      border:none;
+      color:white;
+      text-align:left;
+      padding:12px;
+      width:100%;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    .submenu{ display:none; padding-left:20px; }
+    .submenu.open{ display:block; }
+
+    .sidebar a{
+      display:block;
+      color:white;
+      text-decoration:none;
+      padding:8px 20px;
+      font-size:16px;
+    }
+
+    .main{
+      margin-left:200px;
+      padding:20px;
+      padding-top:80px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .card{
+      background:#fff;
+      padding:40px;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      max-width:600px;
+      text-align:center;
+    }
+
+    .title{
+      font-size:20px;
+      font-weight:bold;
+      margin-bottom:15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <img src="https://fbarcelo4587.github.io/notas-fundaci-n-barcelo/logo.png" alt="Logo">
+    <div class="user">D. Vallejos</div>
+  </div>
+
+  <div class="sidebar">
+    <button class="menu-item has-children" data-target="alumnos-sub">👥 Alumnos ▾</button>
+    <div class="submenu" id="alumnos-sub">
+      <a href="notasbarcelo.html">Consulta de notas</a>
+    </div>
+
+    <button class="menu-item has-children" data-target="facturacion-sub">💲 Facturación ▾</button>
+    <div class="submenu" id="facturacion-sub">
+      <a href="pagos.html">Pagos</a>
+    </div>
+
+    <a class="menu-item" href="centro-atencion.html">🎧 Centro de atención</a>
+    <a class="menu-item" href="mis-notificaciones.html">🔔 Mis notificaciones</a>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <div class="title">MIS NOTIFICACIONES</div>
+      <p>Actualmente no posee notificaciones pendientes.</p>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.has-children').forEach(btn => {
+      btn.onclick = () => {
+        document.getElementById(btn.dataset.target).classList.toggle('open');
+      };
+    });
+  </script>
+
+</body>
+</html>
