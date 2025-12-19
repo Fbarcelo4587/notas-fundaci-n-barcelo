@@ -81,17 +81,28 @@
             font-weight: bold;
         }
     </style>
-</head>
-<body>
-    <div class="navbar">
-        <img src="logo.png" alt="Logo" style="height:50px;">
-        <div class="user">D. Vallejos</div>
+<div class="sidebar">
+
+    <button class="menu-item has-children" data-target="alumnos-sub">
+        👥 Alumnos ▾
+    </button>
+    <div class="submenu" id="alumnos-sub">
+        <a href="notasbarcelo.html">Consulta de notas</a>
+        <a href="alumnos-legajo.html">Legajo</a>
     </div>
-    <div class="sidebar">
-        <p>📘 Alumnos</p>
-        <p>💲 Pagos</p>
-        <p>🔔 Notificaciones</p>
+
+    <button class="menu-item has-children" data-target="facturacion-sub">
+        💲 Facturación ▾
+    </button>
+    <div class="submenu" id="facturacion-sub">
+        <a href="pagos.html">Pagos</a>
     </div>
+
+    <a class="menu-item" href="centro-atencion.html">🎧 Centro de atención</a>
+    <a class="menu-item" href="mis-notificaciones.html">🔔 Mis notificaciones</a>
+
+</div>
+
     <div class="main">
         <div class="busqueda">
             <div class="section-title">BÚSQUEDA</div>
