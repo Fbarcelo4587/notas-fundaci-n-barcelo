@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pagos</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; background-color:#f0f2f5; }
+
+    .navbar{
+      background-color:#01468a;
+      color:#fff;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:fixed;
+      top:0; left:0; right:0;
+      height:60px;
+      z-index:1000;
+    }
+    .navbar img{ height:40px; }
+    .navbar .user{ font-weight:bold; }
+
+    .sidebar{
+      width:200px;
+      background-color:#01468a;
+      position:fixed;
+      top:60px;
+      bottom:0;
+      color:#fff;
+      padding:20px 10px;
+      z-index:900;
+    }
+
+    .menu-item{
+      background:none;
+      border:none;
+      color:white;
+      text-align:left;
+      padding:12px;
+      width:100%;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    .submenu{ display:none; padding-left:20px; }
+    .submenu.open{ display:block; }
+
+    .sidebar a{
+      display:block;
+      color:white;
+      text-decoration:none;
+      padding:8px 20px;
+      font-size:16px;
+    }
+
+    .main{
+      margin-left:200px;
+      padding:20px;
+      padding-top:80px;
+    }
+
+    .card{
+      background:#fff;
+      padding:20px;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    .section-title{
+      font-size:18px;
+      margin-bottom:12px;
+      font-weight:bold;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+    }
+    th, td{
+      border:1px solid #ddd;
+      padding:10px;
+      text-align:center;
+    }
+    th{
+      background-color:#e0e0e0;
+      font-weight:bold;
+    }
+
+    .table-footer{
+      display:flex;
+      justify-content:flex-end;
+      margin-top:12px;
+    }
+
+    .btn-boleta{
+      background:#01468a;
+      color:#fff;
+      border:none;
+      padding:10px 16px;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+    .btn-boleta:hover{ filter:brightness(0.95); }
+
+    input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <img src="https://fbarcelo4587.github.io/notas-fundaci-n-barcelo/logo.png" alt="Logo">
+    <div class="user">D. Vallejos</div>
+  </div>
+
+  <div class="sidebar">
+    <button class="menu-item has-children" data-target="alumnos-sub">👥 Alumnos ▾</button>
+    <div class="submenu" id="alumnos-sub">
+      <a href="notasbarcelo.html">Consulta de notas</a>
+    </div>
+
+    <button class="menu-item has-children" data-target="facturacion-sub">💲 Facturación ▾</button>
+    <div class="submenu" id="facturacion-sub">
+      <a href="pagos.html">Pagos</a>
+    </div>
+
+    <a class="menu-item" href="centro-atencion.html">🎧 Centro de atención</a>
+    <a class="menu-item" href="mis-notificaciones.html">🔔 Mis notificaciones</a>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <div class="section-title">PAGOS</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Pago</th>
+            <th>Periodo</th>
+            <th>Monto</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Cuota</td>
+            <td>Diciembre</td>
+            <td>$320.000,00</td>
+            <td>
+              <input type="checkbox" class="pago-check" data-file="cuota.docx">
+            </td>
+          </tr>
+
+          <tr>
+            <td>Matrícula</td>
+            <td>2026</td>
+            <td>$290.000,00</td>
+            <td>
+              <input type="checkbox" class="pago-check" data-file="matricula.docx">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="table-footer">
+        <button class="btn-boleta" id="btnBoleta">Generar Boleta</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // desplegables del menú
+    document.querySelectorAll('.has-children').forEach(btn => {
+      btn.onclick = () => {
+        document.getElementById(btn.dataset.target).classList.toggle('open');
+      };
+    });
+
+    // Descargar Word al tildar un pago
+    // (cuando subas los .docx al repo, tienen que llamarse EXACTO como acá:
+    //  cuota.docx y matricula.docx, o después lo cambiamos)
+    document.querySelectorAll('.pago-check').forEach(chk => {
+      chk.addEventListener('change', () => {
+        if (!chk.checked) return;
+
+        const file = chk.dataset.file; // ej: "cuota.docx"
+        const a = document.createElement('a');
+        a.href = file;          // busca el archivo en la misma carpeta del html
+        a.download = file;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+    });
+
+    // Botón (por ahora no hace nada extra, solo está el botón como pediste)
+    document.getElementById('btnBoleta').addEventListener('click', () => {
+      // Después, si querés, hacemos que genere/descargue según lo seleccionado.
+    });
+  </script>
+
+</body>
+</html>
